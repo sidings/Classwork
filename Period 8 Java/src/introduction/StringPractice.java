@@ -56,6 +56,32 @@ public class StringPractice {
 	}
 	
 	public static void print(String s){
+		String printString = "";
+		int cutoff = 35;
+		//check for words to add ~ s has a length greater than 0
+		while (s.length()>0){
+			String cut = "";
+			String nextWord = "";
+			//check to see if next word will fit on the line AND there must still be words to add
+			while ((cut.length() + nextWord.length()) < cutoff && s.length() > 0){
+				//add the next word to the line
+				cut += nextWord;
+				s = s.substring(nextWord.length());
+				
+				//identify the following word without spaces
+				int endOfWord = s.indexOf(" ");
+				//if there are no more spaces, this is the last word, so add the whole thing
+				if (endOfWord == -1){
+					endOfWord = s.length() -1; //-1 for index
+				}
+				nextWord = s.substring (0, endOfWord+1);
+			}
+			printString += cut + "\n";
+		}
+		
+		System.out.println(printString);
+	}
+	/*public static void print(String s){
 		String printString = s;
 		int cutoff = 10;
 		if(printString.length() > cutoff){
@@ -65,8 +91,8 @@ public class StringPractice {
 		}
 		System.out.println(printString);
 	}
-	
-	private static String getCut(String s, int cutoff, int cut){
+
+/*	private static String getCut(String s, int cutoff, int cut){
 		int cutIndex = cut*cutoff;
 		if(cutIndex > s.length())cutIndex = s.length();
 		String currentCut = s.substring(0, cutIndex);
@@ -82,6 +108,6 @@ public class StringPractice {
 			//shorten the cut to end on a space
 		currentCut = currentCut.substring(0, indexOfLastSpace);
 		return currentCut;
-	}
+	}*/
 
 }
