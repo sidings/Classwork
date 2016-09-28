@@ -5,7 +5,6 @@ public class JoyceSchool implements Chatbot {
 	private boolean inSchoolLoop;
 	private String schoolResponse;
 	
-	@Override
 	public void talk() {
 		inSchoolLoop = true;
 		while(inSchoolLoop){
@@ -19,5 +18,17 @@ public class JoyceSchool implements Chatbot {
 		}
 		
 	}
+	public boolean isTriggered(String userInput) {
+		String[] triggers = {"school", "class", "teacher"};
+		//create a for loop to iterate through your array of triggers
+		if(JoyceMain.findKeyword(userInput, "school", 0)>=0){
+			return true;
+		}
+		if(JoyceMain.findKeyword(userInput, "class", 0)>=0){
+			return true;
+		}
+		return false;
+	}
+	
 
 }
