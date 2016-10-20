@@ -9,15 +9,15 @@ public class ArraysPractice {
 		long currentTime =  System.currentTimeMillis();
 		
 		int[] fiftyNumbers = new int[50];
-		populate(fiftyNumbers);
+		/*populate(fiftyNumbers);
 		print(fiftyNumbers);
 		randomize(fiftyNumbers, 50);
-		print(fiftyNumbers);
-		rollDice(fiftyNumbers, 2);
+		print(fiftyNumbers);*/
+		rollDice(fiftyNumbers, 4);
 		print(fiftyNumbers);
 		//count each die roll and provide a percentage
 
-		countResult(fiftyNumbers, 3);
+		countResult(fiftyNumbers, 4);
 		
 		initializingArraysExample();
 		long endTime = System.currentTimeMillis();

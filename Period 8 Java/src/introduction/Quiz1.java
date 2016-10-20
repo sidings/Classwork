@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Quiz1 {
 	
 	static Scanner input = new Scanner(System.in);
-
+	
 	public static String waitForEntry(){
 		return input.nextLine();
 	}
@@ -17,6 +17,7 @@ public class Quiz1 {
 	
 	//1 point for correct method
 	public static void main(String[] args){
+		//1 point for asking username once
 		if (correctUser()){
 			askPassword();
 		}else{
@@ -25,8 +26,29 @@ public class Quiz1 {
 	}
 
 	private static void askPassword() {
-		// TODO Auto-generated method stub
-		
+		boolean inLoop = true;
+		int triesRemaining = 3;
+		while(inLoop){
+			System.out.println("Enter your password");
+			//1 point user waitForEntry() correctly
+			String entry = waitForEntry();
+			if (entry.equals(password)){
+				System.out.println("You're in");
+				inLoop = false;
+			}else{
+				//0.5 point if triesRemaining is changing
+				triesRemaining--;
+				if(triesRemaining == 0){
+					//0.5 point printing "invalid password"
+					System.out.println("Invalid Password");
+					//0.5 point max 3 tries
+					inLoop = false;
+				}else{
+					//0.5 point printing correct number
+					System.out.println("You have " + triesRemaining + " attempts left.");
+				}
+			}
+		}
 	}
 
 	private static boolean correctUser() {
