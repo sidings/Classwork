@@ -5,6 +5,9 @@ public class ArraysPractice {
 	static boolean[] boos3;
 	
 	public static void main(String[] args) {
+		
+		listPrimes(120);
+		
 		//how do you time a process?
 		long currentTime =  System.currentTimeMillis();
 		
@@ -23,6 +26,34 @@ public class ArraysPractice {
 		long endTime = System.currentTimeMillis();
 		System.out.println("The process took " + (endTime-currentTime) + " milliseconds.");
 		
+	}
+
+	private static void listPrimes(int limit) {
+		int lastToCheck = (int) (Math.sqrt(limit));
+		boolean[] numbers = new boolean[limit+1];
+		for (int i = 0; i<limit+1; i++){
+			numbers[i] = true;
+			
+		}
+		//0 and 1 are by definition, not prime
+		numbers[0] = false;
+		numbers[1] = false;
+		//check all non "crossed off" numbers (start with 2)
+		for (int prime = 0; prime <= lastToCheck; prime++){
+			if (numbers[prime]){
+				System.out.println("\n" + prime + " is prime." + " crossing off:");
+				for (int i = (int)(Math.pow(prime, 2));i < limit+1; i += prime){
+					System.out.print(i + " ");
+					numbers[i] = false;
+				}
+			}
+			System.out.print("\n and the primes are ");
+			for (int index = 0; index < numbers.length; index++){
+				if(numbers[index]){
+					System.out.print(index + ", ");
+				}
+			}
+		}
 	}
 
 	private static void countResult(int[] arr, int numOfDice) {
