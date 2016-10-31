@@ -11,7 +11,7 @@ public class pd8CaveRoom {
 		
 	}
 
-	public void setConnection() {
+	public void setConnection(pd8CaveRoom pd8CaveRoom) {
 		// TODO Auto-generated method stub
 		
 	}
