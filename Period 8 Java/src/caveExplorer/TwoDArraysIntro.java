@@ -2,16 +2,95 @@ package caveExplorer;
 
 import java.util.Arrays;
 
+import java.util.Scanner;
+
 public class TwoDArraysIntro {
 
+	public static Scanner in = new Scanner(System.in);
+	static String[][] arr2D;
+	static String[][] pic;
+	static int starti;
+	static int startj;
+	static int treasurei;
+	static int treasurej;
+	
 	public static void main(String[] args) {
-		boolean[][]mines = new boolean[6][6];
-		plantMines(mines);
-		String[][] field = createField(mines);
-		printPic(field);
+		arr2D = new String[5][5];
+		pic = new String[5][5];
+		for (int row = 0; row < arr2D.length; row++){
+			for (int col = 0; col < arr2D[row].length; col++){
+				arr2D[row][col] = "(" + row + ", " + col+ ")";
+			}
+		}
+		starti = 2;
+		startj = 2;
+		treasurei = 4;
+		treasurej = 3;
+		startExploring();
 	}
 	
+	private static void startExploring() {
+		while(true){
+			for(int i = 0; i < pic.length; i++){
+				for (int j = 0; j < pic[0].length; j++){
+					pic[i][j] = " ";
+				}
+			}
+			pic[starti][startj] = "x";
+			printPic(pic);
+			
+			System.out.println("You are in room " + arr2D[starti][startj] + ".");
+			if (starti == treasurei && startj == treasurej){
+				break;
+			}
+			System.out.println("What do you want to do?");
+			String input = in.nextLine();
+			int[] newCoordinates = interpretInput(input);
+			starti = newCoordinates[0];
+			startj = newCoordinates[1];
+		}
+		System.out.println("Congratulations! You've found the treasure!");
+	}
+
+	private static int[] interpretInput(String input) {
+		//verify input is valid
+		while(!isValid(input)){
+			System.out.println("Sorry, in this game, you can only use the WASD controls. "
+					+ "Tell me again what you would like to do.");
+			input = in.nextLine();
+		}
+		int currenti = starti;
+		int currentj= startj;
+		input = input.toLowerCase();
+		
+		if(input.equals("w"))currenti --;
+		if(input.equals("s"))currenti ++;
+		if(input.equals("a"))currentj --; 
+		if(input.equals("d"))currentj ++;
+		int[] newCoordinates = {currenti, currentj};
+		
+		if(currenti >=0 && currenti < arr2D.length && currentj >= 0 && currentj < arr2D[0].length){
+			newCoordinates[0] = currenti;
+			newCoordinates[1] = currentj;
+		}else{
+			System.out.println("Sorry, you've reached the edge of the known universe. "
+					+ "You may go no further in that direction");
+		}
+		return newCoordinates;
+	}
+
+	private static boolean isValid(String input) {
+		String[] validKeys = {"w", "a", "s", "d"};
+		for(String key : validKeys){
+			if (input.toLowerCase().equals(key)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private static String[][] createField(boolean[][] mines) {
+		//this method ONLY considers actual elements
 		String[][] field = new String[mines.length][mines[0].length];
 		for (int row = 0; row < field.length; row ++){
 			for (int col = 0; col < field[0].length; col ++){
@@ -25,15 +104,40 @@ public class TwoDArraysIntro {
 		return field;
 	}
 
+	private static int isValidAndTrue(boolean[][] mines, int i, int j) {
+		if (i >= 0 && i < mines.length && j >= 0 && j > mines[0].length && mines[i][j]) 
+		return 1;
+		else return 0;
+	}
+
 	private static String countNearby(boolean[][] mines, int row, int col) {
-		for(int r = row-1; r <= row +1; r++){
-			for (int c = col-1; c <= col+1; c++){
-				if(r >= 0 && r < mines.length && c >=0 && c < mines[0].length){
-					
-				}
-			}
-		}
-		return null;
+//		for(int r = row-1; r <= row +1; r++){
+//			for (int c = col-1; c <= col+1; c++){
+//				//check that this element exists
+//				if(r >= 0 && r < mines.length && c >=0 && c < mines[0].length){
+//					
+//				}
+//			}
+//		}
+//		return null;
+		//		*****************
+//		int count = 0;
+//		for(int r = 0; r < mines.length; r++){
+//			for(int c = 0; c < mines[r].length; c++){
+//				if(Math.abs(r - row) + Math.abs(c - col) == 1 && mines[r][c]){
+//					count++;
+//				}
+//			}
+//		}
+//		return "" + count;
+//		*****************
+		//this method allows you to be most specific. for ex, you only want north and east
+		int count = 0; 
+		count += isValidAndTrue(mines, row-1, col);
+		count += isValidAndTrue(mines, row+1, col);
+		count += isValidAndTrue(mines, row, col-1);
+		count += isValidAndTrue(mines, row, col+1);
+		return "" + count;
 	}
 
 	private static void plantMines(boolean[][] mines) {
@@ -51,6 +155,13 @@ public class TwoDArraysIntro {
 				numberOfMines--;
 			}
 		}
+	}
+	
+	public static void mines(){
+		boolean[][]mines = new boolean[6][6];
+		plantMines(mines);
+		String[][] field = createField(mines);
+		printPic(field);
 	}
 	
 	public static void intro2(){
@@ -102,6 +213,27 @@ public class TwoDArraysIntro {
 		}
 	}
 	
+	public static void printGrid(String[][] pic){
+		int displacementRow = 3;
+		int startRow = 0;
+		while(startRow < pic.length){
+			for (int col = startRow; col < pic.length ; col++){
+				pic[startRow][col] = "_";
+				pic[startRow+displacementRow][col] = "_";
+			}	
+			startRow +=displacementRow;
+		}
+		int startCol = 0;
+		int displacementCol = 2;
+		while (startCol > pic[0].length){
+			for (int row = startCol; row < pic[0].length; row++){
+				pic[startCol][0] = "|";
+				pic[startCol+displacementCol][pic[0].length-1] = "|";
+			}
+			startCol += displacementCol;
+		}
+		
+	}
 	
 	public static void printPic(String[][] pic){
 		for (String[] row : pic){
