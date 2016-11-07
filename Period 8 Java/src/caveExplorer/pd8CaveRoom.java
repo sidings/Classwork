@@ -18,7 +18,7 @@ public class pd8CaveRoom {
 
 	public pd8CaveRoom(String description){
 		this.description = description;
-		setDefaultContents("   ");
+		setDefaultContents(" ");
 		contents = defaultContents;
 
 		borderingRooms = new pd8CaveRoom[4];
@@ -47,12 +47,17 @@ public class pd8CaveRoom {
 
 	}
 
+	public static String toDirection(int dir) {
+		String[] string = {"the North", "the East", "the South", "the West"};
+		return string[dir];
+	}
+
 	public String getContents(){
 		return contents;
 	}
 
 	public void enter(){
-		contents = " X ";
+		contents = "X";
 	}
 
 	public void leave(){
@@ -107,8 +112,35 @@ public class pd8CaveRoom {
 	}
 
 	public void interpretAction(String input) {
-		
+		while(!isValid(input.toLowerCase())){
+			caveExplorer.print("Please enter 'w', 'a', 's', or 'd'");
+			input = caveExplorer.in.nextLine().toLowerCase();
+		}
+		String[] keys = {"w","d","s","a"};
+		int indexFound = -1;
+		for (int i = 0; i < keys.length; i++){
+			if (keys[i].equals(input)){
+				indexFound = i;
+				break;
+			}
+		}
+		if(borderingRooms[indexFound] != null && doors[indexFound] != null && doors[indexFound].isOpen()){
+			caveExplorer.currentRoom.leave();
+			caveExplorer.currentRoom = borderingRooms[indexFound];
+			caveExplorer.currentRoom.enter();
+			caveExplorer.inventory.updateMap();
+		}
 	}
+
+	public static boolean isValid(String input) {
+		String[] keys = {"w", "d", "s","a"};
+		for(String key : keys){
+			if (input.equals(key)){
+				return true;
+			}
+		}
+		return false;
+	} 
 
 }
 

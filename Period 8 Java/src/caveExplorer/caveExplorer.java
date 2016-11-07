@@ -13,11 +13,12 @@ public class caveExplorer {
 		caves = new pd8CaveRoom[5][5];
 		for(int row = 0; row < caves.length; row++){
 			for (int col = 0; col < caves[row].length; col++){
-				caves[row][col] = new pd8CaveRoom("This room has coordinates" + row + ", " + col);
+				caves[row][col] = new pd8CaveRoom("This room has coordinates " + row + ", " + col);
 			}
 		}
 	
 	currentRoom = caves[1][2];
+	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	currentRoom.enter();
 	caves[1][2].setConnection(pd8CaveRoom.WEST, caves[1][1], new Door());
 	caves[1][2].setConnection(pd8CaveRoom.SOUTH, caves[2][2], new Door());
@@ -34,7 +35,6 @@ public class caveExplorer {
 			print("What would you like to do?");
 			String input = in.nextLine();
 			act(input);
-			
 		}
 	}
 	private static void act(String input) {
