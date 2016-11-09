@@ -36,14 +36,18 @@ public class InventoryNockles {
 				for(pd8CaveRoom cr : row){
 					String str = "|   ";
 					String contents = cr.getContents();
-					if (textRow == 1 && cr.getDoor(pd8CaveRoom.WEST)!= null){
-						str = "  " + contents + " ";
+					if (textRow == 1){
+						if (cr.getDoor(pd8CaveRoom.WEST)!= null && cr.getDoor(pd8CaveRoom.WEST).isOpen()){
+							str = "  " + contents + " ";
+						}else{
+							str = "| "+ contents + " ";
+						}
 					}
 					else if (textRow == 2){
-						if(cr.getDoor(pd8CaveRoom.SOUTH)== null){
-							str = "|___";
-						}else{
+						if(cr.getDoor(pd8CaveRoom.SOUTH)!= null && cr.getDoor(pd8CaveRoom.SOUTH).isOpen()){
 							str = "|_ _";
+						}else{
+							str = "|___";
 						}
 					}
 					map += str;
