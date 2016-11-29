@@ -23,7 +23,7 @@ public class RecursionIntro {
 		//System.out.print(integer);
 		//System.out.print(factorial(5));
 		
-		hanoiSolution(4, "a", "b", "c");
+		hanoiSolution(3, "a", "b", "c");
 	}
 
 	private static void forLoop(int i, Action action) {
