@@ -23,7 +23,7 @@ public class RecursionIntro {
 		//System.out.print(integer);
 		//System.out.print(factorial(5));
 		
-		hanoiSolution(2, "a", "b", "c");
+		hanoiSolution(4, "a", "b", "c");
 	}
 
 	private static void forLoop(int i, Action action) {
@@ -49,6 +49,8 @@ public class RecursionIntro {
 			System.out.println("Move " + startPeg + " to " + endPeg);
 		}else{
 			hanoiSolution(numOfDiscs-1, startPeg, endPeg, midPeg);
+			hanoiSolution(1, startPeg, midPeg, endPeg);
+			hanoiSolution(numOfDiscs-1, midPeg, startPeg, endPeg);
 		}
 	}
 }
