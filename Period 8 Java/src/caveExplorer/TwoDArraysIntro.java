@@ -23,7 +23,7 @@ public class TwoDArraysIntro {
 //		}
 		arr2D = new String[6][7];
 		printGrid(arr2D);
-		printPic(arr2D);
+		//printPic(arr2D);
 //		starti = 2;
 //		startj = 2;
 //		treasurei = 4;
@@ -33,7 +33,7 @@ public class TwoDArraysIntro {
 	
 	private static void startPlaying() {
 		while(true){
-			printPic(arr2D);
+			//printPic(arr2D);
 			System.out.println("Which column would you like to drop your piece?");
 			String input = in.nextLine();
 			int col = 0;
@@ -76,7 +76,7 @@ public class TwoDArraysIntro {
 				}
 			}
 			pic[starti][startj] = "x";
-			printPic(pic);
+			//printPic(pic);
 			
 			System.out.println("You are in room " + arr2D[starti][startj] + ".");
 			if (starti == treasurei && startj == treasurej){
@@ -200,7 +200,7 @@ public class TwoDArraysIntro {
 		boolean[][]mines = new boolean[6][6];
 		plantMines(mines);
 		String[][] field = createField(mines);
-		printPic(field);
+		//printPic(field);
 	}
 	
 	public static void printGrid(String[][] pic){
@@ -228,7 +228,7 @@ public class TwoDArraysIntro {
 		}
 	}
 	
-	public static void printPic(String[][] pic){
+	/*public static void printPic(String[][] pic){
 		for (String[] row : pic){
 			for(String col:row){
 				System.out.print(col);
@@ -268,11 +268,11 @@ public class TwoDArraysIntro {
 			}
 		}
 		//sun
-		/*pic[0][3] = "|";
+		pic[0][3] = "|";
 		pic[1][3] = "O";
 		pic[2][3] = "|";
 		pic[1][2] = "-";
-		pic[1][4] = "-";*/
+		pic[1][4] = "-";
 		//birds
 		int numOfBirds = 5;
 		for(int i = 0; i < numOfBirds; i++){
@@ -291,13 +291,46 @@ public class TwoDArraysIntro {
 				pic[i][(pic[i].length-1)] = "|";
 			}
 		}*/
-		for (int col = 0; col < pic[0].length-1; col++){
+		/*for (int col = 0; col < pic[0].length-1; col++){
 			pic[0][col] = "_";
 			pic[pic.length-1][col] = "_";
 		}
 		for (int row = 1; row < pic.length; row++){
 			pic[row][0] = "|";
 			pic[row][pic[0].length-1] = "|";
+		}
+	
+	public static void printGrid(String[][] pic){
+		int displacementRow = 1;
+		int startRow = 0;
+		while(startRow < pic.length){
+			for (int col = 0; col < pic[0].length ; col++){
+				pic[startRow][col] = "_";
+				if (startRow+displacementRow < pic.length) pic[startRow+displacementRow][col] = "_";
+			}
+			
+			startRow = startRow + displacementRow;
+		}
+		int startCol = 0;
+		int displacementCol = 2;
+		while (startCol < pic[0].length){
+			for (int row = 0; row < pic.length; row++){
+				pic[row][startCol] = "|";
+				if (startCol+displacementCol < pic[0].length) pic[row][startCol+displacementCol] = "|";
+			}
+			startCol = startCol + displacementCol;
+		}
+		for (int j = 0; j < pic[0].length; j++){
+			pic[0][j] = "_";
+		}
+	}
+	
+	public static void printPic(String[][] pic){
+		for (String[] row : pic){
+			for(String col:row){
+				System.out.print(col);
+			}
+			System.out.println();
 		}
 	}
 	public static void intro(){
@@ -321,6 +354,6 @@ public class TwoDArraysIntro {
 			System.out.println(Arrays.toString(row));
 		}
 		
-	}
+	}*/
 
 }
