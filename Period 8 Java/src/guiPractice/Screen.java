@@ -20,8 +20,8 @@ public abstract class Screen {
 		viewObjects = new ArrayList<Visible>();
 		this.width = width;
 		this.height = height;
-		initImage();
 		initObjects(viewObjects);
+		initImage();
 	}
 
 	public abstract void initObjects(ArrayList<Visible> viewObjects);
@@ -44,13 +44,13 @@ public abstract class Screen {
 		g.drawString("Hello", 40, 80);
 		g.drawOval(0, 40, 120, 80);
 		g.drawRect(20, 120, 80, 110);
-		g.drawLine(100, 120, 110, 200);*/
+		g.drawLine(100, 120, 110, 200);
 		
 		g.setColor(Color.green);
 		for(int i = 0; i < image.getWidth(); i+=4){
 			int length = (int) (8 + Math.random()*5);
 			g.drawLine(i, 230, i, 238);
-		}
+		}*/
 	}
 	
 	public BufferedImage getImage(){
