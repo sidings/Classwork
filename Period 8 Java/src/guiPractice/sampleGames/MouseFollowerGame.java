@@ -7,7 +7,9 @@ public class MouseFollowerGame extends GUIApplication {
 	private CoordinateScreen coordScreen;
 	
 	public static void main (String[] args){
-		new MouseFollowerGame();
+		GUIApplication game = new MouseFollowerGame();
+		Thread app = new Thread(game);
+		app.start();
 	}
 	@Override
 	protected void initScreen() {
