@@ -6,7 +6,7 @@ import guiPractice.Screen;
 public class TheBlankScreenGame extends GUIApplication {
 
 	protected void initScreen() {
-		Screen s = new BlankScreen(getWidth(), getHeight());
+		Screen s = new CoordinateScreen(getWidth(), getHeight());
 		setScreen(s);
 	}
 
