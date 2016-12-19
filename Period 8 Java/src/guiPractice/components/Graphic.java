@@ -18,12 +18,20 @@ public class Graphic implements Visible {
 		loadedImages = false;
 		loadImages(imageLocation, 0, 0);
 	}
+
+	public Graphic(int x, int y, int w, int h, String imageLocation){
+		this.x = x;
+		this.y = y;
+		loadedImages = false;
+		loadImages(imageLocation, w, h);
+	}
+	
 	
 	private void loadImages(String imageLocation, int w, int h) {
 		try{
 			//get image from file (FULL SIZE)
 			ImageIcon icon = new ImageIcon(imageLocation);
-			if(x == 0 && h == 0){
+			if(w == 0 && h == 0){
 				//use original size
 				image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
 				
@@ -32,7 +40,13 @@ public class Graphic implements Visible {
 				g.drawImage(icon.getImage(), 0, 0, null);
 			}else{
 				//use custom size
-	
+				image = new BufferedImage(1, h, BufferedImage.TYPE_INT_ARGB);
+				Graphics2D g = image.createGraphics();
+				//Select coordinates of top left rectangle within image
+				//then select width and height to display graphic 
+				//THEN of the icon you want to display, select x, y coordinates
+				//and width, height. This can split an image into parts
+				g.drawImage(icon.getImage(), 0, 0, w, h, 0, 0, icon.getIconWidth(), icon.getIconHeight(), null);
 			}
 			loadedImages = true;
 		}catch(Exception e){
