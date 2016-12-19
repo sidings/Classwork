@@ -5,9 +5,10 @@ import guiPractice.GUIApplication;
 public class MouseFollowerGame extends GUIApplication {
 
 	private CoordinateScreen coordScreen;
+	public static MouseFollowerGame game;
 	
 	public static void main (String[] args){
-		GUIApplication game = new MouseFollowerGame();
+		game = new MouseFollowerGame();
 		Thread app = new Thread(game);
 		app.start();
 	}

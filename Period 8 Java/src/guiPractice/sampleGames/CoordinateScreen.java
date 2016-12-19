@@ -2,6 +2,7 @@ package guiPractice.sampleGames;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
-public class CoordinateScreen extends Screen implements MouseMotionListener{
+public class CoordinateScreen extends Screen implements MouseMotionListener, MouseListener{
 
 	private TextLabel label;
 	private TextArea paragraph;
@@ -32,10 +33,9 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 				+ " of the page, a new line is created.");
 		myButton = new Button(40,50,100,30,"Button",new Color(0,76,153), new Action(){
 			public void act(){
-			//code for action will be in here.
-			}
+				MouseCoordinateGame.game.setScreen(MouseCoordinateGame.myScreen);			}
 			});
-		Graphic picture = new Graphic(50, 50, "resources/sampleImages/corgi1.jpeg");
+		Graphic picture = new Graphic(50, 50, .5, "resources/sampleImages/corgi1.jpeg");
 		viewObjects.add(picture);
 		viewObjects.add(label);
 		viewObjects.add(paragraph);
@@ -52,7 +52,38 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 	public void mouseMoved(MouseEvent m) {
 		label.setText("Mouse at " + m.getX() + ", " + m.getY());
 	}
+	
 	public MouseMotionListener getMouseMotionListener(){
 		return this;
+	}
+
+	public void mouseClicked(MouseEvent e) {
+		if(myButton.isHovered(e.getX(), e.getY())){
+			myButton.act();
+			}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

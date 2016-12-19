@@ -26,6 +26,12 @@ public class Graphic implements Visible {
 		loadImages(imageLocation, w, h);
 	}
 	
+	public Graphic(int x, int y, double scale, String imageLocation){
+		this.x = x;
+		this.y = y;
+		loadedImages = false;
+		loadImages(imageLocation, scale);
+	}
 	
 	private void loadImages(String imageLocation, int w, int h) {
 		try{
@@ -56,8 +62,18 @@ public class Graphic implements Visible {
 	}
 
 	private void loadImages(String imageLocation, double scale) {
-		// TODO Auto-generated method stub
-		
+		try{
+			ImageIcon icon = new ImageIcon(imageLocation);
+			
+			int newWidth = (int)(icon.getIconWidth() * scale);
+			int newHeight = (int)(icon.getIconHeight() * scale);
+			image = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+			loadedImages = true;
+			Graphics2D g = image.createGraphics();
+			g.drawImage(icon.getImage(), 0, 0, newWidth, newHeight, 0, 0, icon.getIconWidth(), icon.getIconHeight(), null);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	
