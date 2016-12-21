@@ -101,6 +101,14 @@ public class Graphic implements Visible {
 		return image.getHeight();
 	}
 
+	public void setX(int x){
+		this.x = x;
+	}
+	
+	public void setY(int y){
+		this.y = y;
+	}
+	
 	@Override
 	public boolean isAnimated() {
 		return false;
