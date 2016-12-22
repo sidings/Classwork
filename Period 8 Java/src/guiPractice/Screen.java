@@ -9,6 +9,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import guiPractice.components.Clickable;
 import guiPractice.components.Visible;
 
 public abstract class Screen {
@@ -116,5 +117,10 @@ public abstract class Screen {
 	public MouseMotionListener getMouseMotionListener() {
 		return null;
 	}
+
+	public void addObject(Visible v) {
+		viewObjects.add(v);
+	}
+
 
 }
