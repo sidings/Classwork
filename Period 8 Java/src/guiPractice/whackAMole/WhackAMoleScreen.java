@@ -2,6 +2,7 @@ package guiPractice.whackAMole;
 
 import java.util.ArrayList;
 
+import guiPractice.components.Action;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import guiPractice.sampleGames.ClickableScreen;
@@ -50,6 +51,57 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		changeText("Set...");
 		changeText("Go!");
 		changeText("");
+		timeLabel.setText("" + timeLeft);
+		while(timeLeft > 0){
+			//frame updates every 10 ms
+			try{
+				Thread.sleep(100);
+			}catch(InterruptedException e){
+				e.printStackTrace();
+			}
+			timeLeft -= .1;
+			timeLabel.setText("" + (int)((timeLeft*10)/10.0));
+			disappearMoles();
+			addnewMoles();
+		}
+	}
+	
+	private void addnewMoles() {
+		//probability of mole sppearing depends on time left
+		double probability = .2*(30.0-timeLeft)/30;
+		if(Math.random()  <probability){
+			MoleInterface mole = getAMole();
+			//between.5amd 2.5 sec
+			mole.setAppearanceTime((int)(500 + Math.random() * 2000));
+			mole.setAction(new Action(){
+				public void act(){
+					player.increaseScore(1);
+				//removeMole from visibles
+					remove(mole);
+					moles.remove(mole);
+				}
+			});
+			//add mole to visibles
+			addObject(mole);
+			//add mole to mole list
+			moles.add(mole);
+		}
+	}
+
+	private void disappearMoles(){
+		//each mole has a "clock"
+			//when the clock counts down to 0, it disappears
+			for(int i = 0; i < moles.size(); i++){
+				MoleInterface m = moles.get(i);
+				m.setAppearanceTime(m.getAppearanceTime() - 100);
+				if (m.getAppearanceTime() <= 0){
+					//remove from visibles
+					remove(m);
+					//remove it from our moles databaseS
+					moles.remove(i);
+					i --; //compensate for i++
+				}	
+			}
 	}
 	
 	/**
