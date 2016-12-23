@@ -17,7 +17,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
-		timeLeft = 60.0;
+		timeLeft = 30.0;
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -68,7 +68,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	
 	private void addnewMoles() {
 		//probability of mole sppearing depends on time left
-		double probability = .2*(30.0-timeLeft)/30;
+		double probability = .2 + .1*(30.0-timeLeft)/30;
 		if(Math.random()  <probability){
 			MoleInterface mole = getAMole();
 			//between.5amd 2.5 sec
@@ -110,14 +110,14 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	*learn how to create a Player
 	*/
 	private PlayerInterface getAPlayer() {
-	 return null;
+	 return new Player(20, 20);
 	}
 
 	/**
 	*to implement later, after EnemyTeam implements MoleInterface
 	*/
 	private MoleInterface getAMole() {
-	return null;
+		return new Mole((int)(getWidth()*Math.random())-100, (int)(getHeight()*Math.random()));
 	}
 
 

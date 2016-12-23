@@ -4,9 +4,10 @@ import guiPractice.components.ClickableGraphic;
 
 public class Mole extends ClickableGraphic implements MoleInterface {
 
-	public Mole(int x, int y, String imageLocation) {
-		super(x, y, imageLocation);
-		// TODO Auto-generated constructor stub
+	private double appearanceTime;
+	
+	public Mole(int x, int y) {
+		super(x, y, .5, "resources/sampleImages/mole.jpg");
 	}
 
 	public Mole(int x, int y, int w, int h, String imageLocation) {
@@ -21,14 +22,12 @@ public class Mole extends ClickableGraphic implements MoleInterface {
 
 	@Override
 	public int getAppearanceTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int) appearanceTime;
 	}
 
 	@Override
 	public void setAppearanceTime(int i) {
-		// TODO Auto-generated method stub
-
+		this.appearanceTime = i;
 	}
 
 }
