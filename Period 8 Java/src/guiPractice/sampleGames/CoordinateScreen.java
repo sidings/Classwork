@@ -10,6 +10,7 @@ import guiPractice.Screen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.Graphic;
+import guiPractice.components.MovingComponent;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
@@ -40,6 +41,10 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		viewObjects.add(label);
 		viewObjects.add(paragraph);
 		viewObjects.add(myButton);
+		MovingComponent mc = new MovingComponent(30, 60, 80, 80);
+		mc.setVy(3);
+		mc.play();
+		viewObjects.add(mc);
 	}
 
 	@Override
