@@ -25,7 +25,7 @@ public class MovingComponent extends Component implements Runnable {
 	}
 	
 	@Override
-	public void run() {
+	public void run() { 
 		posx = getX();
 		posy = getY();
 		running = true;
