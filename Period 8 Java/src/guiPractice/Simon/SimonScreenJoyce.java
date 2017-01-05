@@ -1,7 +1,9 @@
 package guiPractice.Simon;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
+import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
@@ -59,7 +61,46 @@ public class SimonScreenJoyce extends ClickableScreen implements Runnable {
 	}
 
 	private void addButtons() {
-		
+		int numberOfButtons = 6;
+		Color[] colorArr = {Color.yellow, Color.blue, Color.green, Color.red, Color.orange, Color.MAGENTA};
+		for(int i = 0; i < numberOfButtons; i++){
+			final ButtonInterfaceJoyce b = getAButton();
+			b.setColor(colorArr[i]);
+			b.setX(30*i + 30);
+			b.setY(50);
+			b.setAction(new Action(){
+				public void act(){
+					if(userTurn){
+						Thread blink = new Thread(new Runnable(){
+
+							public void run() {
+								b.highlight();
+								try {
+									Thread.sleep(800);
+									b.dim();
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							
+						});
+						blink.start();
+						if (b == moves.get(sequenceIndex).getButton()) sequenceIndex ++;
+						else{
+							progress.gameOver();
+						}
+						if(sequenceIndex == moves.size()){
+							Thread nextRound = new Thread(SimonScreenJoyce.this);
+						}
+					}
+				}
+			});
+		}
+	}
+
+	private ButtonInterfaceJoyce getAButton() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private ProgressInterfaceJoyce getProgress() {
