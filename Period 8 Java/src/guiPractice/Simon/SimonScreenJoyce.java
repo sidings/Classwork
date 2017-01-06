@@ -28,8 +28,48 @@ public class SimonScreenJoyce extends ClickableScreen implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		text.setText("");
+	    nextRound();
+	}
 
+	private void nextRound() {
+		userTurn = false;
+		roundNumber++;
+		moves.add(randomMove());
+		progress.setRound(roundNumber);
+		progress.setSequenceNum(moves.size());
+		changeText("Simon's Turn!");
+		playSequence();
+		changeText("Your Turn!");
+		userTurn = true;
+		sequenceIndex = 0;
+	}
+
+	private void playSequence() {
+		ButtonInterfaceJoyce b;
+		b = null;
+		for(int i = 0; i < moves.size(); i++){
+			if (b != null)b.dim();
+			b = moves.get(i).getButton();
+			b.highlight();
+			int sleepTime = 5000/(roundNumber+1);
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		b.dim();
+	}
+
+	private void changeText(String string) {
+		try {
+			text.setText(string);
+			Thread.sleep(1000);
+			text.setText("");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
