@@ -60,7 +60,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 
 	private void addAnimation(ArrayList<Visible> viewObjects) {
 		AnimatedComponent a = new AnimatedComponent(40, 50,150, 150);
-		try{//sprite2 = 5, 4, 140, 120 || sprite3 = 4, 2, 150, 100
+		try{//sprite2 = 5, 4, 140, 120 || sprite 3 = 4, 2, 150, 100
 			int numberInRow = 4;
 			int rows = 2;
 			int w = 150;
