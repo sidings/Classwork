@@ -1,13 +1,18 @@
 package guiPractice.sampleGames;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 import guiPractice.Screen;
 import guiPractice.components.Action;
+import guiPractice.components.AnimatedComponent;
 import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.MovingComponent;
@@ -41,14 +46,43 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		viewObjects.add(label);
 		viewObjects.add(paragraph);
 		viewObjects.add(myButton);
-		MovingComponent mc = new MovingComponent(30, 60, 80, 80);
-		MovingComponent mc2 = new MovingComponent(100, 60, 80, 80);
-		mc.setVy(3);
-		mc.play();
-		mc2.setVy(10);
-		mc2.play();
-		viewObjects.add(mc);
-		viewObjects.add(mc2);
+//		MovingComponent mc = new MovingComponent(30, 60, 80, 80);
+//		MovingComponent mc2 = new MovingComponent(100, 60, 80, 80);
+//		mc.setVy(3);
+//		mc.play();
+//		mc2.setVy(10);
+//		mc2.play();
+//		viewObjects.add(mc);
+//		viewObjects.add(mc2);
+//		
+		addAnimation(viewObjects);
+	}
+
+	private void addAnimation(ArrayList<Visible> viewObjects) {
+		AnimatedComponent a = new AnimatedComponent(40, 50,150, 150);
+		try{//sprite2 = 5, 4, 140, 120 || sprite3 = 4, 2, 150, 100
+			int numberInRow = 4;
+			int rows = 2;
+			int w = 150;
+			int h = 100;
+			ImageIcon icon = new ImageIcon("resources/sampleImages/sprite3.png");
+			//create a for loop that will take a "cropped image" from the sprite grid
+			for (int i = 0; i < numberInRow * rows; i++){
+				//declare the "cropped image"
+				BufferedImage cropped = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+				int leftMargin = 0;
+				int topMargin = 0;
+				int x1 = leftMargin + w*(i%numberInRow);
+				int y1 = topMargin + h*(i/numberInRow);
+				Graphics2D g = cropped.createGraphics();
+				g.drawImage(icon.getImage(), 30, 30, w, h, x1, y1, x1 + w, y1 + h, null);
+				a.addFrame(cropped, 100);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		};
+		viewObjects.add(a);
+		a.play();
 	}
 
 	@Override

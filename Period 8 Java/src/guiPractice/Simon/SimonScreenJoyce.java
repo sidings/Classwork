@@ -74,7 +74,7 @@ public class SimonScreenJoyce extends ClickableScreen implements Runnable {
 
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		addButtons();
+		addButtons(viewObjects);
 		progress = getProgress();
 		moves = new ArrayList<MoveInterfaceJoyce>();
 		text = new TextLabel(130, 230, 300, 40, "Let's play Simon!");
@@ -100,7 +100,7 @@ public class SimonScreenJoyce extends ClickableScreen implements Runnable {
 		return null;
 	}
 
-	private void addButtons() {
+	private void addButtons(ArrayList<Visible> viewObjects) {
 		int numberOfButtons = 6;
 		Color[] colorArr = {Color.yellow, Color.blue, Color.green, Color.red, Color.orange, Color.MAGENTA};
 		for(int i = 0; i < numberOfButtons; i++){
@@ -131,10 +131,12 @@ public class SimonScreenJoyce extends ClickableScreen implements Runnable {
 						}
 						if(sequenceIndex == moves.size()){
 							Thread nextRound = new Thread(SimonScreenJoyce.this);
+							nextRound.start();
 						}
 					}
 				}
 			});
+			viewObjects.add(b);
 		}
 	}
 
