@@ -7,5 +7,11 @@ Juice Feng
 		tomorrow. 
 		
 5/5/17
-	Goal: Today, I will go over my old javascript files to relearn how to code in that language and php. 
-		If I finish this early, I will go into how to access the database in these files.
+	Goal: Today, there has been a change of plans. We are going to do this in Java instead. My goal today is to 
+		understand what Vaadin is and how it works in conjunction with our project and Eclipse. I will also try
+		to understand how databases will fit in here. Previously, we used php in our Javascript files to access
+		our databases. Now, I have to figure out what to use in Java and which other programs I will need to 
+		be proficient in to make the whole thing work. 
+	- I have no idea what Vaadin is. However, I found out that we could use the JDBC API to access databases.
+		There are tutorials online and apparently, it works with MySQL, so I will try out the tutorials and 
+		learn the new syntax.
