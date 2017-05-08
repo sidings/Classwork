@@ -15,3 +15,11 @@ Juice Feng
 	- I have no idea what Vaadin is. However, I found out that we could use the JDBC API to access databases.
 		There are tutorials online and apparently, it works with MySQL, so I will try out the tutorials and 
 		learn the new syntax.
+		
+5/8/17
+	Goal: Today, I will ask Mr. Nockles what Vaadin is and see how it applies to our project. If it doesn't apply, 
+		then I need to find another method.
+	- Apparently, Vaadin is used for front end conversion of Java code into Javascript. It could be useful, but we 
+		have decided to apply it at the end after having all of our base code running in Eclipse. This has nothing 
+		to do with my part (Database), so I will continue on my own research tomorrow. The responsibility over 
+		Vaadin, if we are using it, will be designated to Veeraj because he is in charge of the front end. 
