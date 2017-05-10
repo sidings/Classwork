@@ -23,3 +23,15 @@ Juice Feng
 		have decided to apply it at the end after having all of our base code running in Eclipse. This has nothing 
 		to do with my part (Database), so I will continue on my own research tomorrow. The responsibility over 
 		Vaadin, if we are using it, will be designated to Veeraj because he is in charge of the front end. 
+		
+5/10/17
+	Goal: Today, I will figure out what programs I need to implement databases in my code. Something about JDBC
+		and mySQL??
+	- So I have found some tutorials online on how to use them in Java, but they first required me to have mySQL
+		and the mySQL JDBC driver downloaded. I have the driver downloaded, but the Internet is very slow and 
+		I'm getting an estimate of 2 hours for mySQL to download. I will watch some videos of what to do in the 
+		meantime. 
+		Update: Just spoke to Max and his group is also trying to implement databases. He brought up a good point
+		that if I download mySQL, I will have to have it downloaded on every computer that I am running my chatroom
+		on. His suggestion of using php didn't help because our entire project is in Java. I will look up the best
+		solution at home.
