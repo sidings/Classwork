@@ -35,3 +35,9 @@ Juice Feng
 		that if I download mySQL, I will have to have it downloaded on every computer that I am running my chatroom
 		on. His suggestion of using php didn't help because our entire project is in Java. I will look up the best
 		solution at home.
+
+5/11/17
+	Goal: Try to workaround needing to redownload mySQL.
+	- Oh, good day!!!!!! I was able to connect phpMyAdmin to Java. Now, I can access the databases through the usage 
+		of wampserver. Now, I will mess around with the code to find out cool things that I can do. We are hoping to 
+		store images and emojis somehow.
