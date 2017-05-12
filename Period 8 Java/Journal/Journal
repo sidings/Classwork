@@ -41,3 +41,12 @@ Juice Feng
 	- Oh, good day!!!!!! I was able to connect phpMyAdmin to Java. Now, I can access the databases through the usage 
 		of wampserver. Now, I will mess around with the code to find out cool things that I can do. We are hoping to 
 		store images and emojis somehow.
+		
+5/12/17
+	Goal: Today, I will find out how to store images in a database and try it out. Also, I will further develop my
+		knowledge on the different SQL related Java methods.
+	- So apparently it is possible to store images in a database, but I think we have to store their file paths? I 
+		was in the middle of looking this up when I got sidetracked by researching all the different methods that
+		will need to be used, such as setBinaryStream, and the difference between the different data types, such as 
+		PreparedStatement vs Statement vs CallableStatement. Also, I wonder how we will be ale to get the image paths
+		in the midst of running the chatroom. In other words, how will the user be able to input it?
