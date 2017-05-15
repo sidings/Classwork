@@ -50,3 +50,13 @@ Juice Feng
 		will need to be used, such as setBinaryStream, and the difference between the different data types, such as 
 		PreparedStatement vs Statement vs CallableStatement. Also, I wonder how we will be able to get the image paths
 		in the midst of running the chatroom. In other words, how will the user be able to input it?
+		
+5/15/17
+	Goal: Today, I will continue my last goal of trying to add images and emojis to a database. Also, I will have 
+		to figure out how I will have the user upload the images from their own files.
+	- I worked with Victor to figure out the errors with his server-client connection. Apparently, it had something 
+		to do with the firewall on the computer and/or network. We will have to use our own hotspot. I'm still trying
+		to figure out the images/emojis issue. Victor brought up a good question that I will also have to think about-
+		how will I get each table to be representative of a conversation? How will I label the tables to have it 
+		"belong" to two people? I am thinking about naming the tables with the names of the people. There might be 
+		another way..
