@@ -60,3 +60,12 @@ Juice Feng
 		how will I get each table to be representative of a conversation? How will I label the tables to have it 
 		"belong" to two people? I am thinking about naming the tables with the names of the people. There might be 
 		another way..
+		
+5/16/17
+	Goal: Today, I will continue working on the same thing. I will also think about having a login for the users and
+		a table that will hold these logins. Figuring out the best way to keep all this info together will be a main
+		goal.
+	- I spoke with my group members and some of our tasks overlap so we have divided the tasks again. I am solely 
+		working on keeping track of the messages between two users depending on their usernames/names. Each 
+		conversation will be a new table. I will have to create new tables each time a user speaks with someone new.
+		I need Veeraj to finish the login so I can use his variables and methods.
