@@ -69,3 +69,15 @@ Juice Feng
 		working on keeping track of the messages between two users depending on their usernames/names. Each 
 		conversation will be a new table. I will have to create new tables each time a user speaks with someone new.
 		I need Veeraj to finish the login so I can use his variables and methods.
+	
+5/17/17
+	Goal: Veeraj is absent today so I will wait for his method of coding the login to connect it to the database.
+		Meanwhile, I will find out how to allow other computers on the same network to access my phpmyadmin so that
+		we can use the same databases. 
+	- I found out that there are different users that are allowed on phpmyadmin and to access an account from another
+		computer, you need to change the permissions in phpmyadmin's config file. That's found in wampserver -> Apache
+		-> Alias Directories -> phpmyadmin. I watched a few videos on how to rewrite the code to check if it works.
+		Apparently if I allow permission from my computer's ip address, phpmyadmin should show up when I try to access
+		it but instead, it's telling me that I don't have permission. Maybe there's something going on with this 
+		computer and it's network?? I will Google this later.
+		
