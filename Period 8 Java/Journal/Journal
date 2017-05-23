@@ -84,7 +84,18 @@ Juice Feng
 5/22/17
 	Goal: Figure out this issue that I can't seem to solve. More and more sure that it has something to do with the 
 		the network that the computers are on.
-	- So spoke to Mr. Nockles and it's most likely due to that. I kept trying different tricks to try and conenct the
+	- So spoke to Mr. Nockles and it's most likely due to that. I kept trying different tricks to try and connect the
 		computers but nothing seems to work. Not sure what the next step is here. If we can't have the computers 
 		access the same database then my part of the project will be incomplete. 
 		
+5/23/17
+     Goal: Today I will work with Veeraj and try to fix the problem in his code where he cannot link the login GUI 
+     	to the actual chatroom. We're not sure where the problem is because the code makes sense.
+     - Could not figure out the problem. After a user inputs the correct login, the window closes and the client 
+     	window opens but without any text. Still not sure why this happens. It shouldn't have anything to do with 
+     	the dispose() method because this was called on the login window, then the client window was opened. From 
+     	Veeraj's code, I got a new idea for my database problem. I could have all the messages stored in a text file
+     	with the program dynamically creating new text files every time someone starts a new conversation with 
+     	someone else. This won't be dynamic in the sense that one would have to pull and rerun the project in order
+     	to have the updated messages, but it's better than nothing at this point.
+     
