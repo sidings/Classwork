@@ -98,4 +98,10 @@ Juice Feng
      	with the program dynamically creating new text files every time someone starts a new conversation with 
      	someone else. This won't be dynamic in the sense that one would have to pull and rerun the project in order
      	to have the updated messages, but it's better than nothing at this point.
-     
+5/24/17
+  	Goal: Try at Veeraj's problem again but focus on the alternate way to create files.
+  	- Still unclear why Veeraj's code doesn't work even though everything seems correct. The dynamic creation of 
+  		files requires me to learn new data types like File, FileWriter, PrintWriter, Writer, etc. I will continue
+  		my research on this topic tomorrow. Veeraj seems to have it working in his files so I will have to dissect 
+  		Victor's Client code to figure out when to create the new files and save the messages that the clients 
+  		are sending to each other.
