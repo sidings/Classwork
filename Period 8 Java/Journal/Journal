@@ -105,3 +105,11 @@ Juice Feng
   		my research on this topic tomorrow. Veeraj seems to have it working in his files so I will have to dissect 
   		Victor's Client code to figure out when to create the new files and save the messages that the clients 
   		are sending to each other.
+  
+5/25/17
+	Goal: Today, I will work on the text file method and try to get it to work.
+	- It works! I was able to create the text file dynamically. It took a long time of testing and trying to 
+		understand Victor's code to know where to fit in my part. The only thing is that I need to make the program
+		write to the file dynamically, which shouldn't be too hard. I will work on that tomorrow. I think it has
+		something to do with the file path that I have set. I think I might have the wrong path but that should
+		also be an easy fix. 
