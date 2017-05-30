@@ -114,10 +114,17 @@ Juice Feng
 		something to do with the file path that I have set. I think I might have the wrong path but that should
 		also be an easy fix. 
 		
-5/16/17
+5/26/17
 	Goal: Today, I will work on the same thing.
 	- I still haven't gotten it to work yet. This is all just a matter of putting it in the right place and I'm not 
 		doing that. I have it in a place where it only writes to the text file once even though its in a for loop.
 		This is because after I call the write method, I have to call the close method which closes the writer. I 
 		have to separate my code from my check for the file's existence in order to have it work correctly. Not
 		entirely too sure as to why the writer doesn't get recreated after I call the method. 
+		
+5/30/17
+	Goal: To get the thing to work today.
+	- I realized that I had misinterpreted Victor's code but I realized too soon. I am getting close to the answer 
+		but not there yet. I have no clue as to why it isn't writing to the txt file. Quite frustrating but I will
+		ask Jenniber tomorrow because apparently she has done the same thing. I am able to access what the user is
+		typing but I don't know why my writer isn't writing to the file. 
