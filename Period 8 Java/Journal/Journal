@@ -128,3 +128,16 @@ Juice Feng
 		but not there yet. I have no clue as to why it isn't writing to the txt file. Quite frustrating but I will
 		ask Jenniber tomorrow because apparently she has done the same thing. I am able to access what the user is
 		typing but I don't know why my writer isn't writing to the file. 
+		
+5/31/17
+	Goal: Get it working today.
+	- It works! I was able to append the new message to the end of the txt file every time. The problem was that
+		I was missing a boolean when declaring the FileWriter variable. Without the boolean, the writer rewrote
+		the file every single time instead of appending to it. I fixed so that the writer writes to the file 
+		every time the client clicks enter. I now have to make it work for the server. After trying it, I ran 
+		into a few road blocks. I need both the server and the client to be able to access each other's IP addresses 
+		as an identifier for naming the txt file. Since they are in different projects, I need to figure out the best 
+		way to do this. Also, I realized that I need to be able to interchange the IP addresses when naming the txt 
+		file. For example, it could be names "victor+joyce.txt" or "joyce+victor.txt". I will need to account for 
+		this small discrepancy and have the writer be consistent in whichever file it is writing to. I will work on 
+		these problems tomorrow.
