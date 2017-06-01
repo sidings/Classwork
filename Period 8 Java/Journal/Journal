@@ -141,3 +141,11 @@ Juice Feng
 		file. For example, it could be names "victor+joyce.txt" or "joyce+victor.txt". I will need to account for 
 		this small discrepancy and have the writer be consistent in whichever file it is writing to. I will work on 
 		these problems tomorrow.
+		
+6/1/17
+	Goal: Fix the two issues brought up in yesterday's journal.
+	- I haven't gotten them to fully work yet. The code for the interchanging of the txt file's name is very messy
+		and long so I am trying to think of another way to do it. For the accessing of the other's IP address, I 
+		think I will try to send it over in a parameter, but I'm not completely sure yet. If anything, I could also
+		print it in the pop up window and have both classes retrieve it from there. (At this point, I think my skill
+		can no longer be database work because the program doesn't access databases at all.) 
