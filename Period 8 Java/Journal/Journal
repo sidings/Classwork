@@ -149,3 +149,10 @@ Juice Feng
 		think I will try to send it over in a parameter, but I'm not completely sure yet. If anything, I could also
 		print it in the pop up window and have both classes retrieve it from there. (At this point, I think my skill
 		can no longer be database work because the program doesn't access databases at all.) 
+	
+6/5/17
+	Goal: Fix the two issues
+	- I fixed the problem with interchanging the names of the people who are in the current chat so that there are
+		not two different txt files being created. I just had more conditions when checking if one file exists to
+		also check if the other exists. Then if neither exist, the program creates a new file with the server's 
+		name going first. I will continue to work on the other problem tomorrow.
