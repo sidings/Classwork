@@ -152,7 +152,23 @@ Juice Feng
 	
 6/5/17
 	Goal: Fix the two issues
-	- I fixed the problem with interchanging the names of the people who are in the current chat so that there are
+	- I almost fixed the problem with interchanging the names of the people who are in the current chat so that there are
 		not two different txt files being created. I just had more conditions when checking if one file exists to
 		also check if the other exists. Then if neither exist, the program creates a new file with the server's 
 		name going first. I will continue to work on the other problem tomorrow.
+
+6/6/17
+	Goal: Fix the other issue of interchanging names in the txt file's name
+	- I first tried to access the IP addresses of both the server and the client remotely but realized that the 
+		problem that I'm trying to fix is not the right problem to be focusing on. I realized that when creating a 
+		txt file between two people who have never chatted before, the program will create a new txt file from one
+		side and be writing to it. The other (server or client) will try to access that file at the same time to
+		write to it but will not be able to because the project is not dynamic like that. One will need to commit 
+		and push after starting a chat and both will need to pull in order for both to have the txt file. Instead, 
+		I decided to make it so that a txt file is created for a chat between both users when a new user is created.
+		When a new user is created, the program will iterate through the different usernames that have been created
+		so far and create a new chat with those old users and the current new user. This will make an awfully
+		large amount of txt files but I think that this solution is better when running the program to make the two
+		users take a smaller amount of steps before they can fully talk and the program and fully record their 
+		conversation.
+	
