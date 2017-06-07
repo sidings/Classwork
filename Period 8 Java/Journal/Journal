@@ -172,3 +172,12 @@ Juice Feng
 		users take a smaller amount of steps before they can fully talk and the program and fully record their 
 		conversation.
 	
+6/7/17
+	Goal: Be able to log in to other user accounts instead of just the one that was created latest.
+	- I spent a lot of the period talking with my group about the Symposium and the project. Mr. Nockles told us that
+		if we didn't present, we would need an amazing project. We probably won't have that because we're learning
+		completely new concepts and the result of a lengthy time of work is a small amount of code and functionality.
+		I guess we'll just see what happens. Anyways. Today, I worked on my goal stated above but didn't get to finish.
+		I'm going to do it the same way that I changed the code for the NewUser class because it is relatively the same.
+		I have to change around the conditionals and add some things but that's for Friday.
+	
